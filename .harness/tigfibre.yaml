@@ -44,6 +44,7 @@ pipeline:
                       test_status=$?
                       ls -lart $TI_FILTER_FILE_PATH
                       ls -lart $(dirname "$TI_FILTER_FILE_PATH")
+                      echo "result test: $test_status"
                       if [ $test_status -ne 0 ]; then
                           rm $TI_FILTER_FILE_PATH
                       fi
