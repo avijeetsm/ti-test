@@ -43,8 +43,11 @@ pipeline:
                       else
                           test_success=0
                       fi
-                      echo "test_success : $test_success"
+
+
+                      # ---- paste at the bottom of the script ----
                       if [[ $test_success -eq 0 ]]; then
                           rm -rf "$TI_OUTPUT_PATH"
+                          exit 1
                       fi
                     intelligenceMode: true
