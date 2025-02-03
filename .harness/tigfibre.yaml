@@ -19,9 +19,10 @@ pipeline:
         spec:
           cloneCodebase: true
           caching:
-            enabled: true
+            enabled: false
+            paths: []
           buildIntelligence:
-            enabled: true
+            enabled: false
           platform:
             os: Linux
             arch: Amd64
@@ -36,5 +37,11 @@ pipeline:
                   identifier: Test_1
                   spec:
                     shell: Sh
-                    command: echo $TI_FILTER_FILE_PATH
+                    command: |-
+                      echo $TI_FILTER_FILE_PATH
+                      ./gradlew test
+                      test_status=$?
+                      if [ $test_status -ne 0]; then
+                          rm $TI_FILTER_FILE_PATH
+                      fi
                     intelligenceMode: true
