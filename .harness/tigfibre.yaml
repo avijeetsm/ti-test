@@ -46,6 +46,7 @@ pipeline:
                       ls -lart $(dirname "$TI_FILTER_FILE_PATH")
                       echo "result test: $test_status"
                       if [ $test_status -ne 0 ]; then
+                          echo "IN IF"
                           rm $TI_FILTER_FILE_PATH
                       fi
                       ls -lart $TI_FILTER_FILE_PATH
