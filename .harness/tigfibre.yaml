@@ -1,0 +1,40 @@
+pipeline:
+  name: ti-gfibre
+  identifier: tigfibre
+  projectIdentifier: tiagentdev
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: tigfibretest
+        build: <+input>
+        sparseCheckout: []
+  stages:
+    - stage:
+        name: ti
+        identifier: ti
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Test
+                  name: Test_1
+                  identifier: Test_1
+                  spec:
+                    shell: Sh
+                    command: echo $TI_FILTER_FILE_PATH
+                    intelligenceMode: true
