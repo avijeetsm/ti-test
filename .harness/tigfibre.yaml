@@ -36,7 +36,7 @@ pipeline:
                   name: Test_1
                   identifier: Test_1
                   spec:
-                    shell: Bash
+                    shell: Sh
                     command: |-
                       # wrap your test command in this if else fi
                       if ./gradlew test; then
