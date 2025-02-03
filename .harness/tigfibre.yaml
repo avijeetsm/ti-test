@@ -47,7 +47,7 @@ pipeline:
 
 
                       # ---- paste at the bottom of the script ----
-                      if [[ $test_success -eq 0 ]]; then
+                      if [ $test_success -eq 0 ]; then
                           rm -rf "$TI_OUTPUT_PATH"
                           exit 1
                       fi
