@@ -39,16 +39,12 @@ pipeline:
                     shell: Bash
                     command: |-
                       if ./gradlew test; then
-                          echo "\nLINE 2\n"
                           test_success=1
                       else
-                          echo "\nLINE 5\n"
                           test_success=0
                       fi
-
-                      if [[ $test_success -eq 1 ]]; then
-                          echo "\nLINE 10\n"
-                          echo "deleting"
+                      echo "test_success : $test_success"
+                      if [[ $test_success -eq 0 ]]; then
                           rm -rf "$TI_OUTPUT_PATH"
                       fi
                     intelligenceMode: true
