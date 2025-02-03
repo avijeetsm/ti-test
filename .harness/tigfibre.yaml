@@ -38,6 +38,7 @@ pipeline:
                   spec:
                     shell: Bash
                     command: |-
+                      # wrap your test command in this if else fi
                       if ./gradlew test; then
                           test_success=1
                       else
