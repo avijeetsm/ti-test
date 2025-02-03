@@ -37,7 +37,7 @@ pipeline:
                   identifier: Test_1
                   spec:
                     shell: Sh
-                    command: |-
+                    command: |
                       echo $TI_FILTER_FILE_PATH
                       echo "Current user: $USER"
                       ./gradlew test
@@ -50,6 +50,6 @@ pipeline:
                           rm $TI_FILTER_FILE_PATH
                       fi
                       rm $TI_FILTER_FILE_PATH
-                      ls -lart $TI_FILTER_FILE_PATH
                       ls -lart $(dirname "$TI_FILTER_FILE_PATH")
+                      ls -lart $TI_FILTER_FILE_PATH
                     intelligenceMode: true
