@@ -41,7 +41,7 @@ pipeline:
                       echo $TI_FILTER_FILE_PATH
                       ./gradlew test
                       test_status=$?
-                      if [ $test_status -ne 0]; then
+                      if [ $test_status -ne 0 ]; then
                           rm $TI_FILTER_FILE_PATH
                       fi
                     intelligenceMode: true
