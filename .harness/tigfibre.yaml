@@ -39,6 +39,7 @@ pipeline:
                     shell: Sh
                     command: |-
                       echo $TI_FILTER_FILE_PATH
+                      echo "Current user: $USER"
                       ./gradlew test
                       test_status=$?
                       ls -lart $TI_FILTER_FILE_PATH
