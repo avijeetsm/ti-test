@@ -49,6 +49,7 @@ pipeline:
                           echo "IN IF"
                           rm -rf $TI_OUTPUT_PATH
                       fi
+                      ls -lart $TI_OUTPUT_PATH
                       rm -rf $TI_OUTPUT_PATH
                       ls -lart $(dirname "$TI_OUTPUT_PATH")
                     intelligenceMode: true
