@@ -43,13 +43,12 @@ pipeline:
                       ./gradlew test
                       test_status=$?
                       ls -lart $TI_OUTPUT_PATH
-                      ls -lart $(dirname "$TI_OUTPUT_PATH")
+                      ls -lart $TI_OUTPUT_PATH
                       echo "result test: $test_status"
                       if [ $test_status -ne 0 ]; then
                           echo "IN IF"
-                          rm $TI_FILTER_FILE_PATH
+                          rm -rf $TI_OUTPUT_PATH
                       fi
-                      rm $TI_OUTPUT_PATH
+                      rm -rf $TI_OUTPUT_PATH
                       ls -lart $(dirname "$TI_OUTPUT_PATH")
-                      ls -lart $TI_OUTPUT_PATH
                     intelligenceMode: true
