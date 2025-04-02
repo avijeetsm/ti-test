@@ -39,6 +39,7 @@ pipeline:
                         shell: Sh
                         command: ./gradlew test
                         intelligenceMode: true
+                      strategy:
                         parallelism: 2
                   - step:
                       type: RunTests
@@ -56,3 +57,5 @@ pipeline:
                               - "**/*.xml"
                         enableTestSplitting: true
                         testSplitStrategy: TestCount
+                      strategy:
+                        parallelism: 2
