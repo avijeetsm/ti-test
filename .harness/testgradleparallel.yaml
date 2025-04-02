@@ -18,9 +18,10 @@ pipeline:
         spec:
           cloneCodebase: true
           caching:
-            enabled: true
+            enabled: false
+            paths: []
           buildIntelligence:
-            enabled: true
+            enabled: false
           platform:
             os: Linux
             arch: Amd64
@@ -29,12 +30,29 @@ pipeline:
             spec: {}
           execution:
             steps:
-              - step:
-                  type: Test
-                  name: Test_1
-                  identifier: Test_1
-                  spec:
-                    shell: Sh
-                    command: ./gradlew test
-                    intelligenceMode: true
-                    parallelism: 2
+              - parallel:
+                  - step:
+                      type: Test
+                      name: Test_1
+                      identifier: Test_1
+                      spec:
+                        shell: Sh
+                        command: ./gradlew test
+                        intelligenceMode: true
+                        parallelism: 2
+                  - step:
+                      type: RunTests
+                      name: RunTests_1
+                      identifier: RunTests_1
+                      spec:
+                        language: Java
+                        buildTool: Gradle
+                        args: test
+                        runOnlySelectedTests: true
+                        reports:
+                          type: JUnit
+                          spec:
+                            paths:
+                              - "**/*.xml"
+                        enableTestSplitting: true
+                        testSplitStrategy: TestCount
