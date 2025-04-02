@@ -37,3 +37,4 @@ pipeline:
                     shell: Sh
                     command: ./gradlew test
                     intelligenceMode: true
+                    parallelism: 2
