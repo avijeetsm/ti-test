@@ -55,7 +55,7 @@ pipeline:
                           spec:
                             paths:
                               - "**/*.xml"
-                        enableTestSplitting: true
+                        enableTestSplitting: false
                         testSplitStrategy: TestCount
                       strategy:
                         parallelism: 2
