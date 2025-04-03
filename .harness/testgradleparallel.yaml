@@ -58,4 +58,16 @@ pipeline:
                         enableTestSplitting: false
                         testSplitStrategy: TestCount
                       strategy:
-                        parallelism: 2
+                        repeat:
+                          items:
+                            - "18"
+                            - "17"
+                            - "16"
+                            - "15"
+                            - "14"
+                            - "13"
+                            - "12"
+                            - "11"
+                            - "10"
+                            - "9"
+                          maxConcurrency: 5
