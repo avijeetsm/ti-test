@@ -40,7 +40,7 @@ pipeline:
                         command: ./gradlew test
                         intelligenceMode: true
                       strategy:
-                        parallelism: 2
+                        parallelism: 4
                   - step:
                       type: RunTests
                       name: RunTests_1
