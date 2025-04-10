@@ -1,0 +1,14 @@
+inputSet:
+  name: gradle-pr-inputset
+  identifier: gradleprinputset
+  orgIdentifier: default
+  projectIdentifier: tiagentdev
+  pipeline:
+    identifier: testgradleparallel
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
