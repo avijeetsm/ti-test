@@ -1,5 +1,5 @@
 pipeline:
-  name: test-gradle-parallel
+  name: test-gradle
   identifier: testgradleparallel
   projectIdentifier: tiagentdev
   orgIdentifier: default
@@ -30,44 +30,11 @@ pipeline:
             spec: {}
           execution:
             steps:
-              - parallel:
-                  - step:
-                      type: Test
-                      name: Test_1
-                      identifier: Test_1
-                      spec:
-                        shell: Sh
-                        command: ./gradlew test
-                        intelligenceMode: true
-                      strategy:
-                        parallelism: 4
-                  - step:
-                      type: RunTests
-                      name: RunTests_1
-                      identifier: RunTests_1
-                      spec:
-                        language: Java
-                        buildTool: Gradle
-                        args: test
-                        runOnlySelectedTests: true
-                        reports:
-                          type: JUnit
-                          spec:
-                            paths:
-                              - "**/*.xml"
-                        enableTestSplitting: false
-                        testSplitStrategy: TestCount
-                      strategy:
-                        repeat:
-                          items:
-                            - "18"
-                            - "17"
-                            - "16"
-                            - "15"
-                            - "14"
-                            - "13"
-                            - "12"
-                            - "11"
-                            - "10"
-                            - "9"
-                          maxConcurrency: 5
+              - step:
+                  type: Test
+                  name: Test_1
+                  identifier: Test_1
+                  spec:
+                    shell: Sh
+                    command: ./gradlew test
+                    intelligenceMode: true
