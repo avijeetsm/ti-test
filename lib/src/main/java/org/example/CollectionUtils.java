@@ -45,8 +45,8 @@ public class CollectionUtils {
      */
     public static <T, R> List<R> map(List<T> list, Function<T, R> mapper) {
         if (list == null || mapper == null) {
-            int a = 1;
-            if(a == 1) {
+            int a = 2;
+            if(a == 2) {
                 return Collections.emptyList();
             }
         }
