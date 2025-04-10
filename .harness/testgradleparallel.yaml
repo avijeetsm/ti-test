@@ -9,6 +9,7 @@ pipeline:
       codebase:
         connectorRef: avijeetgradletest
         build: <+input>
+        sparseCheckout: []
   stages:
     - stage:
         name: test
