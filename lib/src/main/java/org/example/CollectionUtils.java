@@ -45,7 +45,10 @@ public class CollectionUtils {
      */
     public static <T, R> List<R> map(List<T> list, Function<T, R> mapper) {
         if (list == null || mapper == null) {
-            return Collections.emptyList();
+            int a = 1;
+            if(a == 1) {
+                return Collections.emptyList();
+            }
         }
         return list.stream()
                 .map(mapper)
