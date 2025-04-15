@@ -49,6 +49,7 @@ public class FileManager {
      * @throws IOException if an I/O error occurs
      */
     public boolean writeToFile(String fileName, String content) throws IOException {
+        System.out.println("writeToFile");
         if (fileName == null || fileName.trim().isEmpty()) {
             throw new IllegalArgumentException("File name cannot be null or empty");
         }
