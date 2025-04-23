@@ -40,4 +40,4 @@ pipeline:
                     command: ./gradlew test
                     intelligenceMode: true
                   strategy:
-                    parallelism: 1
+                    parallelism: 2
