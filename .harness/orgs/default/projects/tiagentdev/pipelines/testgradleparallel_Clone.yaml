@@ -39,11 +39,5 @@ pipeline:
                     intelligenceMode: true
                   strategy:
                     parallelism: 2
-        variables:
-          - name: HARNESS_CI_INTERNAL_ROUTE_TO_RUNNER
-            type: String
-            description: ""
-            required: false
-            value: "false"
   identifier: testgradleparallel_Clone
   name: test-gradle - Clone
