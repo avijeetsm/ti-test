@@ -36,7 +36,7 @@ pipeline:
                   name: Test_1
                   identifier: Test_1
                   spec:
-                    shell: Sh
+                    shell: Powershell
                     command: ./gradlew test
                     intelligenceMode: true
                   strategy:
